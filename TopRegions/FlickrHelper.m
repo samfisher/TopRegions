@@ -153,4 +153,23 @@
     return [photo valueForKeyPath:FLICKR_PHOTO_ID];
 }
 
++ (void)loadRecentPhotosOnCompletion:(void (^)(NSArray *places, NSError *error))completionHandler
+{
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+    NSURLSessionDownloadTask *task = [session downloadTaskWithURL:[FlickrHelper URLforRecentGeoreferencedPhotos]
+                                                completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+                                                    NSArray *photos;
+                                                    if (!error) {
+                                                        photos = [[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:location]
+                                                                                                  options:0
+                                                                                                    error:&error] valueForKeyPath:FLICKR_RESULTS_PHOTOS];
+                                                    }
+                                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                                        completionHandler(photos, error);
+                                                    });
+                                                }];
+    [task resume];
+}
+
 @end

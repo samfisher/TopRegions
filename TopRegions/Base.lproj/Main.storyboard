@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-248.5" y="31.5"/>
         </scene>
-        <!--Top Places-->
+        <!--Top Regions-->
         <scene sceneID="3LV-dr-vqM">
             <objects>
                 <tableViewController id="moe-zT-DOd" customClass="TopPlacesTableViewController" sceneMemberID="viewController">
@@ -67,7 +67,7 @@
                             <outlet property="delegate" destination="moe-zT-DOd" id="a1g-if-YZd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Top Places" id="JWj-di-VxA"/>
+                    <navigationItem key="navigationItem" title="Top Regions" id="JWj-di-VxA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="8uO-pn-EWU">
                         <autoresizingMask key="autoresizingMask"/>
@@ -236,11 +236,11 @@
             </objects>
             <point key="canvasLocation" x="357.5" y="373.5"/>
         </scene>
-        <!--Top Places-->
+        <!--Top Regions-->
         <scene sceneID="vNi-Ve-mcf">
             <objects>
                 <navigationController id="OnT-Dy-Yxr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Places" id="fT6-S7-wNc"/>
+                    <tabBarItem key="tabBarItem" title="Top Regions" id="fT6-S7-wNc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UKZ-wG-UUn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self fetchPlaces];
+    //[self fetchPlaces];
 }
 
 - (IBAction)fetchPlaces

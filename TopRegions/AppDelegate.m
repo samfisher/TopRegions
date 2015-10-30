@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "FlickrHelper.h"
+
 
 @interface AppDelegate ()
 
@@ -15,8 +17,9 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [self startFlickrFetch];
     return YES;
 }
 
@@ -40,6 +43,20 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)startFlickrFetch
+{
+    [FlickrHelper loadRecentPhotosOnCompletion:^(NSArray *photos, NSError *error) {
+        if (error)
+        {
+            NSLog(@"Flickr background fetch failed: %@", error.localizedDescription);
+        }
+        else
+        {
+            NSLog(@"%d photos fetched", [photos count]);
+        }
+    }];
 }
 
 @end

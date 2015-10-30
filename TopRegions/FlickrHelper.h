@@ -29,4 +29,6 @@
 + (NSURL *)URLforPhoto:(NSDictionary *)photo;
 
 + (NSString *)IDforPhoto:(NSDictionary *)photo;
+
++ (void)loadRecentPhotosOnCompletion:(void (^)(NSArray *places, NSError *error))completionHandler;
 @end
