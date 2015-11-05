@@ -163,9 +163,15 @@
     return [photo valueForKeyPath:FLICKR_PHOTO_ID];
 }
 
+#define BACKGROUND_FLICKR_FETCH_TIMEOUT 10
+
 + (void)loadRecentPhotosOnCompletion:(void (^)(NSArray *places, NSError *error))completionHandler
 {
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    
+    config.allowsCellularAccess = NO;
+    config.timeoutIntervalForRequest = BACKGROUND_FLICKR_FETCH_TIMEOUT;
+    
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
     NSURLSessionDownloadTask *task = [session downloadTaskWithURL:[FlickrHelper URLforRecentGeoreferencedPhotos]
                                                 completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
