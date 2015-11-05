@@ -16,10 +16,17 @@
 
 @implementation AppDelegate
 
+#define FOREGROUND_FLICKR_FETCH_INTERVAL (15 * 60)
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self startFlickrFetch];
+    [NSTimer scheduledTimerWithTimeInterval:FOREGROUND_FLICKR_FETCH_INTERVAL
+                                     target:self
+                                   selector:@selector(startFlickrFetch:)
+                                   userInfo:nil
+                                    repeats:YES];
     return YES;
 }
 
@@ -31,12 +38,15 @@
     }];
 }
 
-- (void)application:(UIApplication *)application
-handleEventsForBackgroundURLSession:(NSString *)identifier
-  completionHandler:(void (^)())completionHandler
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler
 {
     [FlickrHelper handleEventsForBackgroundURLSession:identifier
                                     completionHandler:completionHandler];
+}
+
+- (void)startFlickrFetch:(NSTimer *)timer
+{
+    [self startFlickrFetch];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
