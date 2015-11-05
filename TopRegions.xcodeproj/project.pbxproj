@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2004EA531BEBBE330071FB7F /* DocumentHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2004EA521BEBBE330071FB7F /* DocumentHelper.m */; settings = {ASSET_TAGS = (); }; };
+		2004EA561BEBC09D0071FB7F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2004EA541BEBC09D0071FB7F /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		200AD7C51BDAC73A00DE09A4 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 200AD7C41BDAC73A00DE09A4 /* ImageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		200AD7CA1BE0078600DE09A4 /* RecentPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 200AD7C91BE0078600DE09A4 /* RecentPhotos.m */; settings = {ASSET_TAGS = (); }; };
 		200AD7CD1BE0099F00DE09A4 /* RecentPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 200AD7CC1BE0099F00DE09A4 /* RecentPhotosTableViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -44,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2004EA511BEBBE330071FB7F /* DocumentHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentHelper.h; sourceTree = "<group>"; };
+		2004EA521BEBBE330071FB7F /* DocumentHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentHelper.m; sourceTree = "<group>"; };
+		2004EA551BEBC09D0071FB7F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		200AD7C31BDAC73A00DE09A4 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		200AD7C41BDAC73A00DE09A4 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		200AD7C81BE0078600DE09A4 /* RecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotos.h; sourceTree = "<group>"; };
@@ -161,6 +166,9 @@
 			children = (
 				208541E71BD6C624000E027D /* AppDelegate.h */,
 				208541E81BD6C624000E027D /* AppDelegate.m */,
+				2004EA541BEBC09D0071FB7F /* Model.xcdatamodeld */,
+				2004EA511BEBBE330071FB7F /* DocumentHelper.h */,
+				2004EA521BEBBE330071FB7F /* DocumentHelper.m */,
 				2077EAB91BD8119F0094DF68 /* FlickrHelper.h */,
 				2077EABA1BD8119F0094DF68 /* FlickrHelper.m */,
 				200AD7C81BE0078600DE09A4 /* RecentPhotos.h */,
@@ -347,7 +355,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				200AD7C51BDAC73A00DE09A4 /* ImageViewController.m in Sources */,
+				2004EA531BEBBE330071FB7F /* DocumentHelper.m in Sources */,
 				2077EABB1BD8119F0094DF68 /* FlickrHelper.m in Sources */,
+				2004EA561BEBC09D0071FB7F /* Model.xcdatamodeld in Sources */,
 				20B8AEA11BD968F700B15A9D /* PlacePhotosTableViewController.m in Sources */,
 				200AD7CD1BE0099F00DE09A4 /* RecentPhotosTableViewController.m in Sources */,
 				20B8AE981BD954A800B15A9D /* PlacesTableViewController.m in Sources */,
@@ -606,6 +616,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2004EA541BEBC09D0071FB7F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2004EA551BEBC09D0071FB7F /* Model.xcdatamodel */,
+			);
+			currentVersion = 2004EA551BEBC09D0071FB7F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 208541D91BD6C624000E027D /* Project object */;
 }
