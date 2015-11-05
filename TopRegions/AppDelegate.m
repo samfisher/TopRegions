@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "FlickrHelper.h"
+#import "DocumentHelper.h"
+#import "Photo+Flickr.h"
+#import "PhotoDatabaseAvailability.h"
 
 
 @interface AppDelegate ()
@@ -60,12 +63,24 @@ performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionH
             NSLog(@"Flickr background fetch failed: %@", error.localizedDescription);
             completionHandler(UIBackgroundFetchResultFailed);
         } else {
-            NSLog(@"%d photos fetched", [photos count]);
+            [self useDocumentWithFlickrPhotos:photos];
             completionHandler(UIBackgroundFetchResultNewData);
         }
     }];
 }
 
+- (void)useDocumentWithFlickrPhotos:(NSArray *)photos
+{
+    [DocumentHelper useDocumentWithOperation:^(UIManagedDocument *document, BOOL success) {
+        if (success) {
+            [Photo loadPhotosFromFlickrArray:photos
+                    intoManagedObjectContext:document.managedObjectContext];
+            [document saveToURL:document.fileURL
+               forSaveOperation:UIDocumentSaveForOverwriting
+              completionHandler:nil];
+        }
+    }];
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

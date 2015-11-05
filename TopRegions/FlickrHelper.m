@@ -301,5 +301,19 @@ didCompleteWithError:(NSError *)error
         }];
     }
 }
++ (NSURL *)URLforThumbnail:(NSDictionary *)photo
+{
+    return [FlickrHelper URLforPhoto:photo format:FlickrPhotoFormatSquare];
+}
+
++ (NSString *)placeIDforPhoto:(NSDictionary *)photo
+{
+    return [photo valueForKeyPath:FLICKR_PHOTO_PLACE_ID];
+}
+
++ (NSString *)ownerOfPhoto:(NSDictionary *)photo
+{
+    return [photo valueForKeyPath:FLICKR_PHOTO_OWNER];
+}
 
 @end

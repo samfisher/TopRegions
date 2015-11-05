@@ -37,4 +37,7 @@
                           completionHandler:(void (^)())completionHandler;
 
 
++ (NSURL *)URLforThumbnail:(NSDictionary *)photo;
++ (NSString *)ownerOfPhoto:(NSDictionary *)photo;
++ (NSString *)placeIDforPhoto:(NSDictionary *)photo;
 @end
