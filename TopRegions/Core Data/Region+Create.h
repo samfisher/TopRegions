@@ -7,6 +7,8 @@
 //
 
 #import "Region.h"
+#import "Region+CoreDataProperties.h"
+
 
 @interface Region (Create)
 

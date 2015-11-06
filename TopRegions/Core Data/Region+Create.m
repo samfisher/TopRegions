@@ -7,6 +7,8 @@
 //
 
 #import "Region+Create.h"
+#import "Photographer+CoreDataProperties.h"
+
 
 @implementation Region (Create)
 
@@ -15,14 +17,18 @@
        inManagedObjectContext:(NSManagedObjectContext *)context
 {
     Region *region = nil;
-    if ([placeID length]) {
+    if ([placeID length])
+    {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Region"];
         request.predicate = [NSPredicate predicateWithFormat:@"placeID = %@", placeID];
         NSError *error;
         NSArray *matches = [context executeFetchRequest:request error:&error];
-        if (!matches || ([matches count] > 1)) {
+        if (!matches || ([matches count] > 1))
+        {
             // handle error
-        } else if (![matches count]) {
+        }
+        else if (![matches count])
+        {
             region = [NSEntityDescription insertNewObjectForEntityForName:@"Region"
                                                    inManagedObjectContext:context];
             region.placeID = placeID;
@@ -30,14 +36,17 @@
             [region addPhotographersObject:photographer];
             region.photographerCount = @1;
             NSLog(@"%@", region.placeID);
-        } else {
+        }
+        else
+        {
             region = [matches lastObject];
             region.photoCount = @([region.photoCount intValue] + 1);
             
-            if (![region.photographers member:photographer]) {
-                [region addPhotographersObject:photographer];
-                region.photographerCount = @([region.photographerCount intValue] + 1);;
-            }
+//            if (![region.photographers member:photographer])
+//            {
+//                [region addPhotographersObject:photographer];
+//                region.photographerCount = @([region.photographerCount intValue] + 1);;
+//            }
             NSLog(@"%@ already in database", region.placeID);
         }
     }

@@ -15,7 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Region : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
+- (void)addPhotosObject:(Photo *)value;
+- (void)removePhotosObject:(Photo *)value;
+- (void)addPhotos:(NSSet *)values;
+- (void)removePhotos:(NSSet *)values;
+
+- (void)addPhotographersObject:(Photographer *)value;
+- (void)removePhotographersObject:(Photographer *)value;
+- (void)addPhotographers:(NSSet *)values;
+- (void)removePhotographers:(NSSet *)values;
+
 
 @end
 

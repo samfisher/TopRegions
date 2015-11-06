@@ -10,7 +10,7 @@
 #import "FlickrHelper.h"
 #import "DocumentHelper.h"
 #import "Photo+Flickr.h"
-#import "PhotoDatabaseAvailability.h"
+//#import "PhotoDatabaseAvailability.h"
 
 
 @interface AppDelegate ()
