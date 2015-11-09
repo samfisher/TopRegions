@@ -42,11 +42,11 @@
             region = [matches lastObject];
             region.photoCount = @([region.photoCount intValue] + 1);
             
-//            if (![region.photographers member:photographer])
-//            {
-//                [region addPhotographersObject:photographer];
-//                region.photographerCount = @([region.photographerCount intValue] + 1);;
-//            }
+            //if (![region.photographers member:photographer])
+            //{
+                [region addPhotographersObject:photographer];
+                region.photographerCount = @([region.photographerCount intValue] + 1);
+            //}
             NSLog(@"%@ already in database", region.placeID);
         }
     }
